@@ -53,4 +53,19 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
+	// get user by username
+	@Override
+	public User getUser(String username) {
+		// TODO Auto-generated method stub
+		User user=null;
+		
+		try {
+			user=this.userRepository.findByUsername(username);
+		}catch(Exception e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"User Not Found");
+		}
+		
+		return user;
+	}
+
 }
