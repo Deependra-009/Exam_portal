@@ -1,0 +1,45 @@
+<mat-card>
+    <h1>Your Profile Details</h1>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container text-center">
+                <div class="container">
+                    <img src="./../../../assets/icon.png" class="profile-image responsive">
+                    <h1 class="mt20">{{this.user.firstname+" "+ this.user.lastname}}</h1>
+                    <!-- {{this.user|json}} -->
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <table class="table text-center">
+                            <tr>
+                                <td>username</td>
+                                <td>{{this.user.username}}</td>
+                            </tr>
+                            <tr>
+                                <td>userId</td>
+                                <td>{{this.user.id}}</td>
+                            </tr>
+                            <tr>
+                                <td>Phone Number</td>
+                                <td>{{this.user.phone}}</td>
+                            </tr>
+                            <tr>
+                                <td>Role</td>
+                                <td>{{this.user.authorities[0].authority}}</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>{{this.user.enabled==true?"ACTIVE":"DEACTIVATE"}}</td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="text-center">
+        <button mat-raised-button color="primary">Update</button>
+    </mat-card-actions>
+</mat-card>

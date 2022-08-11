@@ -6,6 +6,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +29,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	@GetMapping("/test")
 	public String test() {
 		return "Application test successfully";
@@ -36,9 +40,14 @@ public class UserController {
 	@PostMapping("/createuser")
 	public ResponseEntity<User> createUser(@RequestBody User User) throws Exception {
 		
+		// BCyptPasword
+		System.out.println("-----------");
+		
+		User.setPassword(this.passwordEncoder.encode(User.getPassword()));
+		
 		Role role=new Role();
 		role.setRoleId(1L);
-		role.setRoleName("NORMAL");
+		role.setRoleName("ADMIN");
 		
 		UserRole userRole=new UserRole();
 		userRole.setUser(User);

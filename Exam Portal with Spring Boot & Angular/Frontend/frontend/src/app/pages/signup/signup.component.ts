@@ -36,6 +36,7 @@ export class SignupComponent implements OnInit {
         console.log(data);
         console.log("success");
         Swal.fire('Success','Registered Successfully','success')
+        window.location.href="/login";
         
         
       },
@@ -43,6 +44,7 @@ export class SignupComponent implements OnInit {
         console.log(error);
         // this.snack.open("Something is wrong!!","oK");
         Swal.fire('Error','Something is wrong','error')
+        return;
       }
     )
 
