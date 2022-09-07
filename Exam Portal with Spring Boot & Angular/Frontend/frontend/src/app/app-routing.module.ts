@@ -1,6 +1,10 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import { CategoriesComponent } from './pages/admin/categories/categories.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -38,6 +42,22 @@ const routes: Routes = [
       {
         path:'profile',
         component:ProfileComponent
+      },
+      {
+        path:'categories',
+        component:CategoriesComponent
+      },
+      {
+        path:'add-category',
+        component:AddCategoriesComponent
+      },
+      {
+        path:'quizzes',
+        component:ViewQuizzesComponent
+      },
+      {
+        path:'add-quiz',
+        component:AddQuizComponent
       }
     ]
   },

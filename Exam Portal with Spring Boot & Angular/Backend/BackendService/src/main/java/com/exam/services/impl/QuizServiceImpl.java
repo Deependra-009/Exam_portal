@@ -41,9 +41,8 @@ public class QuizServiceImpl implements QuizService {
 	@Override
 	public void deleteQuiz(long qid) {
 		// TODO Auto-generated method stub
-		Quiz q=new Quiz();
-		q.setQid(qid);
-		this.quizRepository.delete(q);
+		
+		this.quizRepository.deleteById(qid);
 		
 	}
 
